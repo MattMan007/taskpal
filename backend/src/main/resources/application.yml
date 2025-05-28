@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: taskpal-backend
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskpal
+    username: ${DATABASE_USERNAME:mateiionescu}
+    password: ${DATABASE_PASSWORD:}
+    driver-class-name: org.postgresql.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://securetoken.google.com/${FIREBASE_PROJECT_ID:taskpal-demo}
+
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    com.taskpal: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+cors:
+  allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000,http://localhost:8080}
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
+
+firebase:
+  project-id: ${FIREBASE_PROJECT_ID:taskpal-demo}
+  credentials-path: ${FIREBASE_CREDENTIALS_PATH:firebase-service-account.json} 
