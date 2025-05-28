@@ -3,14 +3,14 @@ spring:
     name: taskpal-backend
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/taskpal
-    username: ${DATABASE_USERNAME:mateiionescu}
-    password: ${DATABASE_PASSWORD:}
+    url: jdbc:postgresql://gondola.proxy.rlwy.net:18302/railway
+    username: postgres
+    password: WCJHqYYcyUlGTWOqniLjCBySNpJfYBFj
     driver-class-name: org.postgresql.Driver
   
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

@@ -35,7 +35,7 @@ public class FirebaseConfig {
                 
                 // Check if the resource exists and is valid
                 if (!resource.exists()) {
-                    System.out.println("⚠️  Firebase credentials file not found. Running in development mode without Firebase authentication.");
+                    System.out.println("Firebase credentials file not found. Running in development mode without Firebase authentication.");
                     return;
                 }
                 
@@ -46,14 +46,14 @@ public class FirebaseConfig {
                             .build();
 
                     FirebaseApp.initializeApp(options);
-                    System.out.println("✅ Firebase initialized successfully");
+                    System.out.println("Firebase initialized successfully");
                 } catch (Exception e) {
-                    System.out.println("⚠️  Firebase initialization failed: " + e.getMessage());
+                    System.out.println("Firebase initialization failed: " + e.getMessage());
                     System.out.println("Running in development mode without Firebase authentication.");
                 }
             }
         } catch (Exception e) {
-            System.out.println("⚠️  Firebase setup error: " + e.getMessage());
+            System.out.println("Firebase setup error: " + e.getMessage());
             System.out.println("Running in development mode without Firebase authentication.");
         }
     }
@@ -65,7 +65,7 @@ public class FirebaseConfig {
                 return FirebaseAuth.getInstance();
             }
         } catch (Exception e) {
-            System.out.println("⚠️  Could not create FirebaseAuth instance: " + e.getMessage());
+            System.out.println("Could not create FirebaseAuth instance: " + e.getMessage());
         }
         
         // Return null for development mode - the authentication provider will handle this
